@@ -10,10 +10,13 @@ function App() {
 
   const [temperature, setTemperature] = useState("--");
   const [wind, setWind] = useState("--");
+  const [locationName, setLocationName] = useState("Bogota, Colombia");
 
   const searchCity = () => {
 
-    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`)
+    const formattedCity = city.replace(",", "").trim();
+
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${formattedCity}`)
       .then((res) => res.json())
       .then((data) => {
 
@@ -23,6 +26,8 @@ function App() {
 
           setLatitude(location.latitude);
           setLongitude(location.longitude);
+
+          setLocationName(`${location.name}, ${location.country}`);
 
           fetch(
             `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current_weather=true`
@@ -37,7 +42,7 @@ function App() {
 
         } else {
 
-          alert("City not found");
+          alert("City not found. Try only the city name.");
 
         }
 
@@ -56,13 +61,13 @@ function App() {
 
         <input
           type="text"
-          placeholder="Search city..."
+          placeholder="Search city (ex: Madrid or San Juan Puerto Rico)"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           style={{
             padding: "10px",
             marginRight: "10px",
-            width: "200px"
+            width: "250px"
           }}
         />
 
@@ -99,8 +104,8 @@ function App() {
         />
 
         <MetricCard
-          title="City"
-          value={city}
+          title="Location"
+          value={locationName}
         />
 
         <MetricCard
