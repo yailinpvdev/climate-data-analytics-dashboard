@@ -16,7 +16,7 @@ function ClimateChart({ latitude, longitude }) {
   useEffect(() => {
 
     fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current_weather=true`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`
     )
       .then((response) => response.json())
       .then((result) => {
@@ -50,6 +50,10 @@ function ClimateChart({ latitude, longitude }) {
             type="monotone"
             dataKey="temperature"
             stroke="#8884d8"
+            strokeWidth={3}
+            dot={{ r: 3 }}
+            isAnimationActive={true}
+            animationDuration={1000}
           />
         </LineChart>
       </ResponsiveContainer>

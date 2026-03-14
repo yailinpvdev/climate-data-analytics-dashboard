@@ -3,15 +3,27 @@ function MetricCard({ title, value }) {
     <div
       style={{
         background: "#f4f4f4",
-        padding: "20px",
-        borderRadius: "10px",
-        width: "150px",
+        padding: "25px",
+        borderRadius: "12px",
+        width: "180px",
         textAlign: "center",
-        boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+        boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+        transition: "transform 0.2s"
       }}
     >
-      <h4>{title}</h4>
-      <p style={{ fontSize: "24px", fontWeight: "bold" }}>{value}</p>
+      <h4 style={{ marginBottom: "10px", color: "#555" }}>
+        {title}
+      </h4>
+
+      <p
+        style={{
+          fontSize: "26px",
+          fontWeight: "bold",
+          color: "#333"
+        }}
+      >
+        {value}
+      </p>
     </div>
   );
 }
