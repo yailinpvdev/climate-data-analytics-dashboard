@@ -2,37 +2,51 @@ import { useState } from "react";
 import ClimateChart from "./components/ClimateChart";
 import MetricCard from "./components/MetricCard";
 
-const cities = {
-  Bucaramanga: { lat: 7.125, lon: -73.119 },
-  Bogota: { lat: 4.711, lon: -74.072 },
-  Medellin: { lat: 6.244, lon: -75.581 },
-  Cali: { lat: 3.451, lon: -76.532 }
-};
-
 function App() {
-  const [city, setCity] = useState("Bucaramanga");
 
-  const latitude = cities[city].lat;
-  const longitude = cities[city].lon;
+  const [city, setCity] = useState("Bucaramanga");
+  const [latitude, setLatitude] = useState(7.125);
+  const [longitude, setLongitude] = useState(-73.119);
+
+  const searchCity = () => {
+
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`)
+      .then((res) => res.json())
+      .then((data) => {
+
+        if (data.results && data.results.length > 0) {
+
+          const location = data.results[0];
+
+          setLatitude(location.latitude);
+          setLongitude(location.longitude);
+
+        } else {
+          alert("City not found");
+        }
+
+      });
+  };
 
   return (
     <div style={{ padding: "40px", fontFamily: "Arial" }}>
+
       <h1>Climate Data Analytics Dashboard</h1>
 
       <div style={{ marginBottom: "20px" }}>
-        <label>Select city: </label>
 
-        <select
+        <input
+          type="text"
+          placeholder="Search city..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          style={{ padding: "8px" }}
-        >
-          {Object.keys(cities).map((cityName) => (
-            <option key={cityName} value={cityName}>
-              {cityName}
-            </option>
-          ))}
-        </select>
+          style={{ padding: "8px", marginRight: "10px" }}
+        />
+
+        <button onClick={searchCity}>
+          Search
+        </button>
+
       </div>
 
       <div
@@ -49,6 +63,7 @@ function App() {
       </div>
 
       <ClimateChart latitude={latitude} longitude={longitude} />
+
     </div>
   );
 }
