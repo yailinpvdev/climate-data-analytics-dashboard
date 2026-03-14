@@ -1,16 +1,83 @@
-# React + Vite
+# Climate Data Analytics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React dashboard that visualizes real-time climate data using external APIs and interactive charts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search weather by city
+- Display real-time temperature and wind speed
+- Interactive temperature chart for the next 24 hours
+- Dynamic dashboard cards
+- Animated data visualization
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Recharts
+- Open-Meteo Weather API
+- Open-Meteo Geocoding API
+- JavaScript
+- CSS
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. The user enters a city name.
+2. The Geocoding API converts the city name into geographic coordinates.
+3. The Weather API retrieves climate data based on those coordinates.
+4. The dashboard updates the chart and metric cards dynamically.
+
+## Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/yailinpvdev/climate-data-analytics-dashboard.git
+```
+
+Go to the project folder:
+
+```
+cd climate-data-analytics-dashboard
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Run the development server:
+
+```
+npm run dev
+```
+
+Open in your browser:
+
+```
+http://localhost:5173
+```
+
+## Project Structure
+
+```
+src
+ ├ components
+ │   ├ ClimateChart.jsx
+ │   └ MetricCard.jsx
+ │
+ ├ App.jsx
+ └ main.jsx
+```
+
+## Data Source
+
+Weather data provided by:
+
+https://open-meteo.com/
+
+## Author
+
+Yailín Pérez
+Software Development Student
