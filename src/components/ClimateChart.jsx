@@ -9,28 +9,26 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-function ClimateChart() {
-
+function ClimateChart({ latitude, longitude }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=7.125&longitude=-73.119&hourly=temperature_2m"
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`
     )
       .then((response) => response.json())
       .then((result) => {
-
-        const temperatures = result.hourly.temperature_2m;
+        const temps = result.hourly.temperature_2m;
         const times = result.hourly.time;
 
-        const formattedData = times.slice(0, 24).map((time, index) => ({
-          time: time.split("T")[1],
-          temperature: temperatures[index]
+        const formatted = times.slice(0, 24).map((t, i) => ({
+          time: t.split("T")[1],
+          temperature: temps[i]
         }));
 
-        setData(formattedData);
+        setData(formatted);
       });
-  }, []);
+  }, [latitude, longitude]);
 
   return (
     <div style={{ width: "100%", height: 350 }}>
@@ -45,7 +43,6 @@ function ClimateChart() {
           <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
         </LineChart>
       </ResponsiveContainer>
-
     </div>
   );
 }
