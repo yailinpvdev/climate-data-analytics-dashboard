@@ -1,24 +1,30 @@
 # Climate Data Analytics Dashboard
 
+![Dashboard Preview](src/assets/dashboard-preview.png)
+
 A modern React dashboard that visualizes real-time climate data using external APIs and interactive charts.
+
+---
+
+## Technologies Used
+
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Recharts](https://img.shields.io/badge/Recharts-Data%20Visualization-blue?style=flat)
+![API](https://img.shields.io/badge/API-OpenMeteo-green?style=flat)
+
+---
 
 ## Features
 
 - Search weather by city
 - Display real-time temperature and wind speed
 - Interactive temperature chart for the next 24 hours
-- Dynamic dashboard cards
+- Dynamic dashboard metric cards
 - Animated data visualization
 
-## Technologies Used
-
-- React
-- Vite
-- Recharts
-- Open-Meteo Weather API
-- Open-Meteo Geocoding API
-- JavaScript
-- CSS
+---
 
 ## How It Works
 
@@ -26,6 +32,8 @@ A modern React dashboard that visualizes real-time climate data using external A
 2. The Geocoding API converts the city name into geographic coordinates.
 3. The Weather API retrieves climate data based on those coordinates.
 4. The dashboard updates the chart and metric cards dynamically.
+
+---
 
 ## Installation
 
@@ -47,37 +55,4 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
-
-```
-npm run dev
-```
-
-Open in your browser:
-
-```
-http://localhost:5173
-```
-
-## Project Structure
-
-```
-src
- ├ components
- │   ├ ClimateChart.jsx
- │   └ MetricCard.jsx
- │
- ├ App.jsx
- └ main.jsx
-```
-
-## Data Source
-
-Weather data provided by:
-
-https://open-meteo.com/
-
-## Author
-
-Yailín Pérez
-Software Development Student
+Run the development ser
