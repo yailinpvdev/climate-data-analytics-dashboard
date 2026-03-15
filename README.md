@@ -6,6 +6,12 @@ A modern React dashboard that visualizes real-time climate data using external A
 
 ---
 
+## Live Demo
+
+https://yailinpvdev.github.io/climate-data-analytics-dashboard/
+
+---
+
 ## Technologies Used
 
 ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
@@ -26,6 +32,18 @@ A modern React dashboard that visualizes real-time climate data using external A
 
 ---
 
+## APIs Used
+
+This project uses the **Open-Meteo API** to retrieve real-time weather data.
+
+- Geocoding API to convert city names into geographic coordinates
+- Weather Forecast API to retrieve temperature and wind data
+
+API Documentation:  
+https://open-meteo.com/
+
+---
+
 ## How It Works
 
 1. The user enters a city name.
@@ -38,21 +56,32 @@ A modern React dashboard that visualizes real-time climate data using external A
 ## Installation
 
 Clone the repository:
-
-```
 git clone https://github.com/yailinpvdev/climate-data-analytics-dashboard.git
-```
 
 Go to the project folder:
-
-```
 cd climate-data-analytics-dashboard
-```
 
 Install dependencies:
-
-```
 npm install
-```
 
-Run the development ser
+Run the development server:
+npm run dev
+
+Then open:
+http://localhost:5173
+
+---
+
+## Deployment
+
+This project is deployed using **GitHub Pages**.
+
+Live site:  
+https://yailinpvdev.github.io/climate-data-analytics-dashboard/
+
+---
+
+## Author
+
+**Yailin P. Velandia**  
+Software Developer in training
